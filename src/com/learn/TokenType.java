@@ -4,5 +4,7 @@ public enum TokenType {
     Identifier,
     GT,GE,
     IntLiteral,
-    SemiColon
+    SemiColon,
+    Assignment,
+    Int
 }
