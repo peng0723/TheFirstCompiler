@@ -52,6 +52,26 @@ public class SimpleLexer {
             token.type = TokenType.GT;
             tokenText.append(ch);
         }
+        else if(ch == '+'){
+            newState = DfaState.Plus;
+            token.type = TokenType.PLUS;
+            tokenText.append(ch);
+        }
+        else if(ch == '-'){
+            newState = DfaState.Minus;
+            token.type = TokenType.MINUS;
+            tokenText.append(ch);
+        }
+        else if(ch == '*'){
+            newState = DfaState.Star;
+            token.type = TokenType.Star;
+            tokenText.append(ch);
+        }
+        else if(ch == '/'){
+            newState = DfaState.Slash;
+            token.type = TokenType.Slash;
+            tokenText.append(ch);
+        }
         else if(ch == ';'){
             newState = DfaState.SemiColon;
             token.type = TokenType.SemiColon;
@@ -101,6 +121,10 @@ public class SimpleLexer {
                 case GE:
                 case SemiColon:
                 case Assignment:
+                case Plus:
+                case Minus:
+                case Star:
+                case Slash:
                     state = initToken(ch);
                     break;
                 case Intliteral:
@@ -221,7 +245,9 @@ public class SimpleLexer {
         Intliteral,
         SemiColon,
         Assignment,
-        Int, Id_int1, Id_int2, Id_int3
+        Int, Id_int1, Id_int2, Id_int3,
+        Plus,Minus,
+        Star,Slash
     }
 
     private final class SimpleToken implements Token{

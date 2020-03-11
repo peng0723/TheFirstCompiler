@@ -6,5 +6,7 @@ public enum TokenType {
     IntLiteral,
     SemiColon,
     Assignment,
-    Int
+    Int,
+    PLUS,MINUS,
+    Star,Slash
 }
